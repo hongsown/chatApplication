@@ -1,17 +1,50 @@
-import { ChatEngine } from "react-chat-engine";
-import ChatFeed from "./components/ChatFeed";
+import React, { useState } from "react";
+import CustomerList from "./components/CustomerList";
+import ChatWindow from "./components/ChatWindow";
+import { mockCustomers, mockConversations } from "./mockData";
 import "./App.css";
-import LoginForm from "./components/LoginForm";
+
 const App = () => {
-  if (!localStorage.getItem("userName")) return <LoginForm />;
+  const [selectedCustomerId, setSelectedCustomerId] = useState(null);
+  const [conversations, setConversations] = useState(mockConversations);
+
+  const selectedCustomer = mockCustomers.find(
+    (c) => c.id === selectedCustomerId
+  );
+  const messages = conversations[selectedCustomerId] || [];
+
+  const handleSendMessage = (messageText) => {
+    const newMessage = {
+      id: messages.length + 1,
+      senderId: "me",
+      senderName: "You",
+      message: messageText,
+      timestamp: new Date().toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+      isOwn: true,
+    };
+
+    setConversations((prev) => ({
+      ...prev,
+      [selectedCustomerId]: [...(prev[selectedCustomerId] || []), newMessage],
+    }));
+  };
+
   return (
-    <ChatEngine
-      height="100vh"
-      projectID="091f469c-be28-46df-bd07-5f28d2908cca"
-      userName={localStorage.getItem("userName")}
-      userSecret={localStorage.getItem("passWord")}
-      renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />} // custom chat feed
-    />
+    <div className="app">
+      <CustomerList
+        customers={mockCustomers}
+        selectedCustomerId={selectedCustomerId}
+        onSelectCustomer={setSelectedCustomerId}
+      />
+      <ChatWindow
+        customer={selectedCustomer}
+        messages={messages}
+        onSendMessage={handleSendMessage}
+      />
+    </div>
   );
 };
 

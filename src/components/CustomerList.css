@@ -1,0 +1,137 @@
+.customer-list {
+  width: 350px;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.customer-list-header {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.customer-list-header h2 {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #3B2A50;
+}
+
+.customer-list-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.customer-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background-color 0.2s;
+}
+
+.customer-item:hover {
+  background-color: #f8f9fa;
+}
+
+.customer-item.active {
+  background-color: #e8e4f0;
+}
+
+.customer-avatar-wrapper {
+  position: relative;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.customer-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: #4caf50;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.customer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.customer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.customer-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.last-message-time {
+  font-size: 12px;
+  color: #999;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.customer-last-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.last-message-text {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.unread-badge {
+  background-color: #3B2A50;
+  color: white;
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
