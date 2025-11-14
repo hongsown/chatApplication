@@ -23,14 +23,8 @@ This project is deployed on Netlify. To deploy your own version, follow these st
 
 ## Usage
 Once you have started the development server, you can access the application at http://localhost:3000/. From there, you can sign in or create a new account to start sending messages to other users.
+<img width="2373" height="1065" alt="image" src="https://github.com/user-attachments/assets/aaed718b-bb25-4a4c-aa9f-ac8a5eeca199" />
 
-<h3>Login Page</h3>
-
-![image](https://user-images.githubusercontent.com/88760761/224462607-beb99155-1f2e-4644-be3d-21e7b3602287.png) 
-
-<h3>Chat with friend</h3>
-
-![image](https://user-images.githubusercontent.com/88760761/224462653-b292d120-0100-47cf-88a9-9f1c75356fd4.png)
 
 ## Features
 - Real-time messaging using WebSockets and ChatEngine
